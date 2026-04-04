@@ -23,6 +23,7 @@ note_parser.set_defaults(func=note.run)
 stats_parser = subparser.add_parser('stats')
 stats_parser.set_defaults(func=stats.run)
 
+
 args = parser.parse_args()
 
 args.func(args)

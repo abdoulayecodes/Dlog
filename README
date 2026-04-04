@@ -1,22 +1,22 @@
-# Dlog
+# dlog
 
-A CLI tool to track your dev sessions.
+ A CLI tool to track your dev sessions.
 
-## Usage
-```bash
-dlog start "ProjectName"
-dlog note "what you did"
-dlog stop
-dlog stats
-dlog export
+ ## Usage
+ ```bash
+ dlg start "ProjectName"
+ dlg note "what you did"
+ dlg stop
+ dlg stats
+ dlg export
+ ```
+
+ ## Installation
+ ```bash
+ git clone https://github.com/abdoulayecodes/dlog
+ cd Dlog
+ pip install -r requirements.txt
 ```
+ ## Status
 
-## Installation
-```bash
-git clone https://github.com/abdoulayecodes/dlog
-cd Dlog
-pip install -r requirements.txt
-```
-## Status
-
-Work in progress
+> 🚧 Work in progress
