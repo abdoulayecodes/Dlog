@@ -16,6 +16,7 @@
  git clone https://github.com/abdoulayecodes/dlog
  cd Dlog
  pip install -r requirements.txt
+ python dlog.py
 ```
  ## Status
 
