@@ -1,2 +1,2 @@
-def run():
-    return "running project..."
+def run(args):
+    print(f"Stopping project...")
