@@ -1,2 +1,11 @@
+import storage
+
 def run(args):
-    print(f"Here are your stats...")
+    session = storage.load()
+    for s in session:
+        if not s["end"] == None:
+            print(f"▶ Project: {s['project']}\n▶ Notes taken:\n{s['notes']}\n▶ Time spent: work in progress")
+            return
+    print("▶ A session is running")
+    
+    

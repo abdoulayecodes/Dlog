@@ -11,3 +11,11 @@ def load():
     
 def save(data):
     session_file.write_text(json.dumps(data, indent=4))
+
+def clear(args):
+    new_data = []
+    for s in load():
+        print(f"▶ {s["project"]} - Data cleared")
+        session_file.write_text(json.dumps(new_data, indent=4))
+        return
+    print("▶ No session found")

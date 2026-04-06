@@ -1,5 +1,6 @@
 import argparse
 from commands import export, note, start, stats, stop
+import storage
 
 def main():
     parser = argparse.ArgumentParser(prog='dlog',
@@ -24,6 +25,8 @@ def main():
     stats_parser = subparser.add_parser('stats')
     stats_parser.set_defaults(func=stats.run)
 
+    clear_parser = subparser.add_parser('clear')
+    clear_parser.set_defaults(func=storage.clear)
 
     args = parser.parse_args()
 
