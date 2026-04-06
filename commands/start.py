@@ -5,7 +5,7 @@ def run(args):
     session = storage.load()
     for s in session:
         if s["end"] == None:
-            print(f"{s['project']} is still running")
+            print(f"▶ {s['project']} is still running")
             return
     new_session = {
         "project": args.project,
@@ -15,6 +15,6 @@ def run(args):
     }
 
     session.append(new_session)
-    storage.save(data=session)
+    storage.save(session)
 
-    print(f"▶ {args.project} — session started")
+    print(f"▶ {args.project} - session started")
