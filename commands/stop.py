@@ -12,7 +12,11 @@ def run(args):
             start = datetime.strptime(s["start"], "%Y-%m-%d %H:%M:%S.%f")
             end = datetime.strptime(s["end"], "%Y-%m-%d %H:%M:%S.%f")
             time_delta = end - start
-            print(f"▶ Time elapsed: {time_delta}")
+            total_seconds = int(time_delta.total_seconds())
+            minutes = total_seconds // 60
+            seconds = total_seconds % 60
+            print(f"▶ Time elapsed: {minutes}m {seconds}s")
+            
             storage.save(session)
             return
     print("▶ No session found")
