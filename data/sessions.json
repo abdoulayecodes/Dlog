@@ -2,7 +2,16 @@
     {
         "project": "ForexPy",
         "start": "2026-04-01 14:00:00",
-        "end": "2026-04-01 16:00:00",
-        "notes": ["ajout API", "fix bug"]
+        "end": "",
+        "notes": [
+            "ajout API",
+            "fix bug"
+        ]
+    },
+    {
+        "project": "me",
+        "start": "2026-04-06 09:57:10.986498",
+        "end": null,
+        "notes": []
     }
 ]

@@ -1,2 +1,20 @@
+from datetime import datetime
+import storage
+
 def run(args):
-    print(f"Starting project: {args.project}")
+    session = storage.load()
+    for s in session:
+        if s["end"] == None:
+            print(f"{s['project']} is still running")
+            return
+    new_session = {
+        "project": args.project,
+        "start": str(datetime.now()),
+        "end": None,
+        "notes": []
+    }
+
+    session.append(new_session)
+    storage.save(data=session)
+
+    print(f"▶ {args.project} — session started")
