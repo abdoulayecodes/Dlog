@@ -15,7 +15,7 @@ def run(args):
             print(f"▶ Time elapsed: {time_delta}")
             storage.save(session)
             return
-    print("▶ No project running")
+    print("▶ No session found")
            
     
     

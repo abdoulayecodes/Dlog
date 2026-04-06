@@ -5,9 +5,8 @@ def run(args):
     for s in session:
         if s["end"] == None:
             s["notes"].append(args.text)
-            print(f"▶ {s['project']} - note added")
             storage.save(session)
+            print(f"▶ {s['project']} - notes saved")
             return
     print("▶ No session found")
-        
     
