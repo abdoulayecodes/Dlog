@@ -12,12 +12,12 @@
  ```
 
  ## Installation
+
  ```bash
  git clone https://github.com/abdoulayecodes/dlog
- cd Dlog
- pip install -r requirements.txt
- python dlog.py
-```
+ cd dlog
+ pip install -e .
+ ```
  ## Status
 
 > 🚧 Work in progress
