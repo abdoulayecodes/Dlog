@@ -1,5 +1,5 @@
 import argparse
-from commands import note, start, stats, stop
+from commands import note, start, stats, stop, check
 import storage
 
 
@@ -32,6 +32,9 @@ def main():
     # 'clear' command wipes sessions.json
     clear_parser = subparser.add_parser('clear')
     clear_parser.set_defaults(func=storage.clear)
+
+    check_parser = subparser.add_parser('check')
+    check_parser.set_defaults(func=check.run)
 
     args = parser.parse_args()
 
