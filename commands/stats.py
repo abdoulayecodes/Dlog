@@ -1,6 +1,6 @@
-
 import storage
 from datetime import datetime
+from pathlib import Path
 
 
 def format_duration(seconds):
@@ -24,27 +24,38 @@ def run(args):
     parsed_sessions = []
 
     for s in sessions:
-        start = datetime.fromisoformat(s["start"])
-        end = datetime.fromisoformat(s["end"])
+        try:
+            start = datetime.fromisoformat(s.get("start"))
+            end = datetime.fromisoformat(s.get("end"))
+        except Exception:
+            continue  # skip invalid session
+
         duration = (end - start).total_seconds()
 
         total_seconds += duration
 
         parsed_sessions.append({
-            "project": s["project"],
+            "project": s.get("project", "unknown"),
             "start": start,
             "end": end,
             "duration": duration,
-            "notes": s["notes"]
+            "notes": s.get("notes", [])
         })
+
+    if not parsed_sessions:
+        return
 
     # global stats
     nb_sessions = len(parsed_sessions)
     avg_seconds = total_seconds / nb_sessions
 
-    project_name = parsed_sessions[0]["project"]  
+    # multi-project support (simple)
+    project_names = set(s["project"] for s in parsed_sessions)
+    project_name = ", ".join(project_names)
 
-    with open(r"output\stats.txt", "w") as f:
+    output_path = Path("output") / "stats.txt"
+
+    with open(output_path, "w") as f:
         f.write(f"""=== dlog stats ===
 Generated: {datetime.now().strftime("%Y-%m-%d %H:%M")}
 
