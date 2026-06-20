@@ -19,5 +19,3 @@
  pip install -e .
  ```
  ## Status
-
-> 🚧 Work in progress
